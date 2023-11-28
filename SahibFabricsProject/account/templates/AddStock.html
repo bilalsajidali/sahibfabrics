@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{%block content%}
+<div class="row">
+    <div class="col-sm-4">   <!--This div is for form-->
+        <h4 class="mt-1 text-align center alert alert-info ">Add Stock</h4>
+        <form action="" method="POST">
+            {%csrf_token%}
+            {{form.as_p}}
+            <button type="submit" class="btn btn-danger ">Add Stock</button>
+        </form>
+    </div>
+
+    <div class="col-sm-8">  <!--This div is for display data-->
+        <h4 class="mt-1 text-align center alert alert-info">All Suits Information</h4>
+        {%if SD%}
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Suit_Category</th>
+                <th scope="col">Suit_Model</th>
+                <th scope="col">Suit_Qty</th>
+                <th scope="col">Suit_Gazana</th>
+                <th scope="col">Suit_Price_Per_Meter</th>
+                <th scope="col">Suit_Shop_No</th>
+                <th scope="col">Actions</th>  
+              </tr>
+            </thead>
+            <tbody>
+                {%for i in SD%}
+              <tr>
+                <th scope="row">{{i.id}}</th>
+                <td>{{i.Suit_Category}}</td>
+                <td>{{i.Suit_Model}}</td>
+                <td>{{i.Suit_Qty}}</td>
+                <td>{{i.Suit_Gazana}}</td>
+                <td>{{i.Suit_Price_Per_Meter}}</td>
+                <td>{{i.Suit_Shop_No}}</td>
+                <td>
+                    <a href="#" class="bi bi-pencil-fill"></a>
+                    &nbsp
+                    <form class="" action="{%url 'deletestock' i.id%}" method="POST" ">
+                      {%csrf_token%}
+                        <input type="submit" value="Delete" class="btn btn-danger"></input> 
+                    </form>
+
+                </td>
+
+
+              </tr>
+              {%endfor%}
+            </tbody>
+          </table>
+
+        {%else%}
+        <h4>else part</h4>
+        {%endif%}
+    </div>
+
+
+
+
+
+
+</div>
+
+{%endblock content%}
