@@ -1,8 +1,12 @@
+
+
 {% extends "base.html" %}
 
 {%block content%}
+
 <div class="row">
-    <div class="col-sm-4">   <!--This div is for form-->
+    <div class="col-sm-4">   <!--This div is for addform-->
+        <h5 class="mt-1 text-align center alert alert-info ">Welcome {{request.user}} &nbsp <a href="/logout" class="btn btn-danger">Logout</a></h5>
         <h4 class="mt-1 text-align center alert alert-info ">Add Stock</h4>
         <form action="" method="POST">
             {%csrf_token%}
@@ -38,11 +42,11 @@
                 <td>{{i.Suit_Price_Per_Meter}}</td>
                 <td>{{i.Suit_Shop_No}}</td>
                 <td>
-                    <a href="#" class="bi bi-pencil-fill"></a>
+                    <a href="{%url 'updatestock' i.id %}" class="bi bi-pencil-fill"></a>
                     &nbsp
                     <form class="" action="{%url 'deletestock' i.id%}" method="POST" ">
-                      {%csrf_token%}
-                        <input type="submit" value="Delete" class="btn btn-danger"></input> 
+                        {%csrf_token%}
+                          <input type="submit" value="Delete" class="btn btn-danger"></input> 
                     </form>
 
                 </td>

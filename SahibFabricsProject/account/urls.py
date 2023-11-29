@@ -10,6 +10,8 @@ urlpatterns = [
     path('register/',views.register,name='register'),
     path('addstock/',views.AddStock,name='addstock'),
     path('delete/<int:id>/',views.delete_stock,name='deletestock'),
+    path('update/<int:id>/',views.update_stock,name='updatestock'),
+    path('logout/',views.logout_page,name='logout'),
 
 
 ]
