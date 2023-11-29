@@ -2,13 +2,14 @@
 
 {%block content%}
 <div class="row">
-    <div class="col-sm-4">
-        <h4 class="mt-5 text-align center alert alert-info ">Registration window</h4>
+    <div class="col-sm-4">   <!--This div is for registerform-->
+        <h4 class="mt-1 text-align center alert alert-info ">User Registration</h4>
         <form action="" method="POST">
             {%csrf_token%}
             {{form.as_p}}
-            <input type="submit" class="btn btn-success" value="Add" >
+            <button type="submit" class="btn btn-danger ">Register</button>
         </form>
+    </div>
 
     </div>
 </div>

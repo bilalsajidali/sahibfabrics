@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import User
+from .models import User_model
 from .models import Suits_model
 # Register your models here.
-@admin.register(User)
+@admin.register(User_model)
 class UserAdmin(admin.ModelAdmin):
-    list_display= ('id','name','email','password')
+    list_display= ('id','username','email','password')
 
 @admin.register(Suits_model)
 class UserAdmin(admin.ModelAdmin):
