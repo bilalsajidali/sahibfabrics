@@ -4,9 +4,9 @@
 <div class="row">
     <div class="col-sm-4">
         <h4 class="mt-5 text-align center alert alert-info ">Login</h4>
-        <form action="" method="POST">
-            {%csrf_token%}
+            
             <form action="" method="POST">
+                {%csrf_token%}
                 <input class="class':'form-control" type="text" value="SahibFabrics" name="username" readonly> <br>
                 <input class="class':'form-control mt-2" type="password" placeholder="Enter password here" name="password"><br>
                 <input type="submit" class="btn btn-success mt-2" value="Login" >

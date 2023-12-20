@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.template import loader
 from .forms import AddStock_form
 from .forms import register_form
-from .models import Suits_model
+from .models import Thaans_model
 from .models import User_model
 from django.contrib.auth.hashers import make_password
 from django.shortcuts import redirect
@@ -88,29 +88,26 @@ def AddStock(request): # add and show stock
     else:
         fm=AddStock_form()
     
-    all_suits=Suits_model.objects.all()
-    return render(request,"AddStock.html",{'form':fm,'SD':all_suits})  #SD means Suits Data (data of all suits)
+    all_Thaans=Thaans_model.objects.all()
+    return render(request,"AddStock.html",{'form':fm,'SD':all_Thaans})  #SD means Thaans Data (data of all Thaans)
 
-def delete_stock(request,id):    #delete suit from stock
+def delete_stock(request,id):    #delete Thaan from stock
     if request.method=='POST':
-        pi=Suits_model.objects.get(pk=id)
+        pi=Thaans_model.objects.get(pk=id)
         pi.delete()
         return redirect('/addstock')
 
 
-def update_stock(request,id): #update suits or edit suits data
+def update_stock(request,id): #update Thaans or edit Thaans data
 
     if request.method =='POST':
-        pi=Suits_model.objects.get(pk=id)
+        pi=Thaans_model.objects.get(pk=id)
         fm=AddStock_form(request.POST,instance=pi)
         if fm.is_valid():
             fm.save()
             return redirect('/addstock')
     else:
-        pi=Suits_model.objects.get(pk=id)
+        pi=Thaans_model.objects.get(pk=id)
         fm=AddStock_form(instance=pi)
 
-
-
-
-    return render(request,"updatestock.html",{'form':fm})
+    return render(request,"UpdateStock.html",{'form':fm})

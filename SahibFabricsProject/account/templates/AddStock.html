@@ -1,8 +1,8 @@
-
-
 {% extends "base.html" %}
 
 {%block content%}
+<p class=" alert alert-danger text-bg-danger">! All data can be deleted or periodically be reset dont worry its part of development process.</p>
+
 
 <div class="row">
     <div class="col-sm-4">   <!--This div is for addform-->
@@ -15,42 +15,48 @@
         </form>
     </div>
 
-    <div class="col-sm-8">  <!--This div is for display data-->
-        <h4 class="mt-1 text-align center alert alert-info">All Suits Information</h4>
-        {%if SD%}
-        <table class="table table-hover">
+    <div class="col-sm-8">  <!--karandi -->
+      <h4 class="mt-1 text-align center alert alert-info">All Thaan Information</h4>
+      <h5 class="text-bg-dark text-center">KARANDI</h5>
+      {% if SD %}
+          <table class="table table-hover">
             <thead>
               <tr>
                 <th scope="col">ID</th>
-                <th scope="col">Suit_Category</th>
-                <th scope="col">Suit_Model</th>
-                <th scope="col">Suit_Qty</th>
-                <th scope="col">Suit_Gazana</th>
-                <th scope="col">Suit_Price_Per_Meter</th>
-                <th scope="col">Suit_Shop_No</th>
+                <th scope="col">Category</th>
+                <th scope="col">Model</th>
+                <th scope="col">Qty</th>
+                <th scope="col">Gazana</th>
+                <th scope="col">Price/m</th>
+                <th scope="col">Shop</th>
                 <th scope="col">Actions</th>  
               </tr>
             </thead>
-            <tbody>
-                {%for i in SD%}
-              <tr>
-                <th scope="row">{{i.id}}</th>
-                <td>{{i.Suit_Category}}</td>
-                <td>{{i.Suit_Model}}</td>
-                <td>{{i.Suit_Qty}}</td>
-                <td>{{i.Suit_Gazana}}</td>
-                <td>{{i.Suit_Price_Per_Meter}}</td>
-                <td>{{i.Suit_Shop_No}}</td>
-                <td>
-                    <a href="{%url 'updatestock' i.id %}" class="bi bi-pencil-fill"></a>
-                    &nbsp
-                    <form class="" action="{%url 'deletestock' i.id%}" method="POST" ">
-                        {%csrf_token%}
-                          <input type="submit" value="Delete" class="btn btn-danger"></input> 
-                    </form>
+            {% for i in SD %}
+           
+                 {% if i.Thaan_Category == "Karandi" %}
+                      
+                      <tbody>
+                          
+                        <tr>
+                          <th scope="row">{{i.id}}</th>
+                          <td>{{i.Thaan_Category}}</td>
+                          <td>{{i.Thaan_Model}}</td>
+                          <td>{{i.Thaan_Qty}}</td>
+                          <td>{{i.Thaan_Gazana}}</td>
+                          <td>{{i.Thaan_Price_Per_Meter}}</td>
+                          <td>{{i.Thaan_Shop_No}}</td>
+                          <td>
+                              <a href="{%url 'updatestock' i.id %}" class="bi bi-pencil-fill"></a>
+                              &nbsp
+                              <form class="" action="{%url 'deletestock' i.id%}" method="POST" ">
+                                  {%csrf_token%}
+                                    <input type="submit" value="Delete" class="btn btn-danger"></input> 
+                              </form>
 
-                </td>
+                          </td>
 
+                          {%endif%}
 
               </tr>
               {%endfor%}
@@ -60,7 +66,406 @@
         {%else%}
         <h4>else part</h4>
         {%endif%}
+
+        <div>   <!-- cotton -->
+          <h5 class="text-bg-dark text-center">COTTON</h5>
+          {% if SD %}
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Gazana</th>
+                    <th scope="col">Price/m</th>
+                    <th scope="col">Shop</th>
+                    <th scope="col">Actions</th>  
+                  </tr>
+                </thead>
+                {% for i in SD %}
+                     {% if i.Thaan_Category == "Cotton" %}
+                          
+                          <tbody>
+                              
+                            <tr>
+                              <th scope="row">{{i.id}}</th>
+                              <td>{{i.Thaan_Category}}</td>
+                              <td>{{i.Thaan_Model}}</td>
+                              <td>{{i.Thaan_Qty}}</td>
+                              <td>{{i.Thaan_Gazana}}</td>
+                              <td>{{i.Thaan_Price_Per_Meter}}</td>
+                              <td>{{i.Thaan_Shop_No}}</td>
+                              <td>
+                                  <a href="{%url 'updatestock' i.id %}" class="bi bi-pencil-fill"></a>
+                                  &nbsp
+                                  <form class="" action="{%url 'deletestock' i.id%}" method="POST" ">
+                                      {%csrf_token%}
+                                        <input type="submit" value="Delete" class="btn btn-danger"></input> 
+                                  </form>
+    
+                              </td>
+    
+                              {%endif%}
+    
+                  </tr>
+                  {%endfor%}
+                </tbody>
+              </table>
+    
+            {%else%}
+            <h4>else part</h4>
+            {%endif%}
+        </div>
+
+        <div> <!--washnwear -->
+          <h5 class="text-bg-dark text-center">WASH N WEAR</h5>
+          {% if SD %}
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Gazana</th>
+                    <th scope="col">Price/m</th>
+                    <th scope="col">Shop</th>
+                    <th scope="col">Actions</th>  
+                  </tr>
+                </thead>
+                {% for i in SD %}
+                     {% if i.Thaan_Category == "washnwear" %}
+                          
+                          <tbody>
+                              
+                            <tr>
+                              <th scope="row">{{i.id}}</th>
+                              <td>{{i.Thaan_Category}}</td>
+                              <td>{{i.Thaan_Model}}</td>
+                              <td>{{i.Thaan_Qty}}</td>
+                              <td>{{i.Thaan_Gazana}}</td>
+                              <td>{{i.Thaan_Price_Per_Meter}}</td>
+                              <td>{{i.Thaan_Shop_No}}</td>
+                              <td>
+                                  <a href="{%url 'updatestock' i.id %}" class="bi bi-pencil-fill"></a>
+                                  &nbsp
+                                  <form class="" action="{%url 'deletestock' i.id%}" method="POST" ">
+                                      {%csrf_token%}
+                                        <input type="submit" value="Delete" class="btn btn-danger"></input> 
+                                  </form>
+    
+                              </td>
+    
+                              {%endif%}
+    
+                  </tr>
+                  {%endfor%}
+                </tbody>
+              </table>
+    
+            {%else%}
+            <h4>else part</h4>
+            {%endif%}
+        </div>
+
+        <div> <!--latha -->
+          <h5 class="text-bg-dark text-center">Latha</h5>
+          {% if SD %}
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Gazana</th>
+                    <th scope="col">Price/m</th>
+                    <th scope="col">Shop</th>
+                    <th scope="col">Actions</th>  
+                  </tr>
+                </thead>
+                {% for i in SD %}
+                     {% if i.Thaan_Category == "Latha" %}
+                          
+                          <tbody>
+                              
+                            <tr>
+                              <th scope="row">{{i.id}}</th>
+                              <td>{{i.Thaan_Category}}</td>
+                              <td>{{i.Thaan_Model}}</td>
+                              <td>{{i.Thaan_Qty}}</td>
+                              <td>{{i.Thaan_Gazana}}</td>
+                              <td>{{i.Thaan_Price_Per_Meter}}</td>
+                              <td>{{i.Thaan_Shop_No}}</td>
+                              <td>
+                                  <a href="{%url 'updatestock' i.id %}" class="bi bi-pencil-fill"></a>
+                                  &nbsp
+                                  <form class="" action="{%url 'deletestock' i.id%}" method="POST" ">
+                                      {%csrf_token%}
+                                        <input type="submit" value="Delete" class="btn btn-danger"></input> 
+                                  </form>
+    
+                              </td>
+    
+                              {%endif%}
+    
+                  </tr>
+                  {%endfor%}
+                </tbody>
+              </table>
+    
+            {%else%}
+            <h4>else part</h4>
+            {%endif%}
+        </div>
+
+        <div> <!--Boski-->
+          <h5 class="text-bg-dark text-center">Boski</h5>
+          {% if SD %}
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Gazana</th>
+                    <th scope="col">Price/m</th>
+                    <th scope="col">Shop</th>
+                    <th scope="col">Actions</th>  
+                  </tr>
+                </thead>
+                {% for i in SD %}
+                     {% if i.Thaan_Category == "Boski" %}
+                          
+                          <tbody>
+                              
+                            <tr>
+                              <th scope="row">{{i.id}}</th>
+                              <td>{{i.Thaan_Category}}</td>
+                              <td>{{i.Thaan_Model}}</td>
+                              <td>{{i.Thaan_Qty}}</td>
+                              <td>{{i.Thaan_Gazana}}</td>
+                              <td>{{i.Thaan_Price_Per_Meter}}</td>
+                              <td>{{i.Thaan_Shop_No}}</td>
+                              <td>
+                                  <a href="{%url 'updatestock' i.id %}" class="bi bi-pencil-fill"></a>
+                                  &nbsp
+                                  <form class="" action="{%url 'deletestock' i.id%}" method="POST" ">
+                                      {%csrf_token%}
+                                        <input type="submit" value="Delete" class="btn btn-danger"></input> 
+                                  </form>
+    
+                              </td>
+    
+                              {%endif%}
+    
+                  </tr>
+                  {%endfor%}
+                </tbody>
+              </table>
+    
+            {%else%}
+            <h4>else part</h4>
+            {%endif%}
+        </div>
+
+        <div> <!--Khaddar-->
+          <h5 class="text-bg-dark text-center">Khaddar</h5>
+          {% if SD %}
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Gazana</th>
+                    <th scope="col">Price/m</th>
+                    <th scope="col">Shop</th>
+                    <th scope="col">Actions</th>  
+                  </tr>
+                </thead>
+                {% for i in SD %}
+                     {% if i.Thaan_Category == "Khaddar" %}
+                          
+                          <tbody>
+                              
+                            <tr>
+                              <th scope="row">{{i.id}}</th>
+                              <td>{{i.Thaan_Category}}</td>
+                              <td>{{i.Thaan_Model}}</td>
+                              <td>{{i.Thaan_Qty}}</td>
+                              <td>{{i.Thaan_Gazana}}</td>
+                              <td>{{i.Thaan_Price_Per_Meter}}</td>
+                              <td>{{i.Thaan_Shop_No}}</td>
+                              <td>
+                                  <a href="{%url 'updatestock' i.id %}" class="bi bi-pencil-fill"></a>
+                                  &nbsp
+                                  <form class="" action="{%url 'deletestock' i.id%}" method="POST" ">
+                                      {%csrf_token%}
+                                        <input type="submit" value="Delete" class="btn btn-danger"></input> 
+                                  </form>
+    
+                              </td>
+    
+                              {%endif%}
+    
+                  </tr>
+                  {%endfor%}
+                </tbody>
+              </table>
+    
+            {%else%}
+            <h4>else part</h4>
+            {%endif%}
+        </div>
+
+        <div> <!--BoxPacking-->
+          <h5 class="text-bg-dark text-center">BoxPacking</h5>
+          {% if SD %}
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Gazana</th>
+                    <th scope="col">Price/m</th>
+                    <th scope="col">Shop</th>
+                    <th scope="col">Actions</th>  
+                  </tr>
+                </thead>
+                {% for i in SD %}
+                     {% if i.Thaan_Category == "BoxPacking" %}
+                          
+                          <tbody>
+                              
+                            <tr>
+                              <th scope="row">{{i.id}}</th>
+                              <td>{{i.Thaan_Category}}</td>
+                              <td>{{i.Thaan_Model}}</td>
+                              <td>{{i.Thaan_Qty}}</td>
+                              <td>{{i.Thaan_Gazana}}</td>
+                              <td>{{i.Thaan_Price_Per_Meter}}</td>
+                              <td>{{i.Thaan_Shop_No}}</td>
+                              <td>
+                                  <a href="{%url 'updatestock' i.id %}" class="bi bi-pencil-fill"></a>
+                                  &nbsp
+                                  <form class="" action="{%url 'deletestock' i.id%}" method="POST" ">
+                                      {%csrf_token%}
+                                        <input type="submit" value="Delete" class="btn btn-danger"></input> 
+                                  </form>
+    
+                              </td>
+    
+                              {%endif%}
+    
+                  </tr>
+                  {%endfor%}
+                </tbody>
+              </table>
+    
+            {%else%}
+            <h4>else part</h4>
+            {%endif%}
+        </div>
+
+        <div> <!--Others-->
+          <h5 class="text-bg-dark text-center">Other</h5>
+          {% if SD %}
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Gazana</th>
+                    <th scope="col">Price/m</th>
+                    <th scope="col">Shop</th>
+                    <th scope="col">Actions</th>  
+                  </tr>
+                </thead>
+                {% for i in SD %}
+                     {% if i.Thaan_Category == "Other" %}
+                          
+                          <tbody>
+                              
+                            <tr>
+                              <th scope="row">{{i.id}}</th>
+                              <td>{{i.Thaan_Category}}</td>
+                              <td>{{i.Thaan_Model}}</td>
+                              <td>{{i.Thaan_Qty}}</td>
+                              <td>{{i.Thaan_Gazana}}</td>
+                              <td>{{i.Thaan_Price_Per_Meter}}</td>
+                              <td>{{i.Thaan_Shop_No}}</td>
+                              <td>
+                                  <a href="{%url 'updatestock' i.id %}" class="bi bi-pencil-fill"></a>
+                                  &nbsp
+                                  <form class="" action="{%url 'deletestock' i.id%}" method="POST" ">
+                                      {%csrf_token%}
+                                        <input type="submit" value="Delete" class="btn btn-danger"></input> 
+                                  </form>
+    
+                              </td>
+    
+                              {%endif%}
+    
+                  </tr>
+                  {%endfor%}
+                </tbody>
+              </table>
+    
+            {%else%}
+            <h4>else part</h4>
+            {%endif%}
+        </div>
+
+
+
+
+
     </div>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
