@@ -10,10 +10,10 @@ class User_model(models.Model):
     password=models.CharField(max_length=100)
 
 
-class Suits_model(models.Model):
-    Suit_Category=models.CharField(max_length=100)
-    Suit_Model=models.CharField(max_length=200)
-    Suit_Qty=models.IntegerField()
-    Suit_Gazana=models.IntegerField()
-    Suit_Price_Per_Meter=models.IntegerField()
-    Suit_Shop_No=models.CharField(max_length=3)
+class Thaans_model(models.Model):
+    Thaan_Category = models.CharField(max_length=100)    
+    Thaan_Model=models.CharField(max_length=200)
+    Thaan_Qty=models.IntegerField()
+    Thaan_Gazana=models.IntegerField()
+    Thaan_Price_Per_Meter=models.IntegerField()
+    Thaan_Shop_No=models.CharField(max_length=3)
