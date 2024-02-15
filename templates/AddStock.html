@@ -1,0 +1,482 @@
+{% extends "base.html" %}
+
+{%block content%}
+
+
+<div class="row">
+    <div class="col-sm-4">   <!--This div is for addform-->
+        <!-- <a class="btn btn-primary" href="/dashboard">Dashboard</a> -->
+        <h5 class="mt-1 text-align center alert alert-info ">Welcome {{request.user}} &nbsp <a href="/dashboard" class="btn btn-danger ms-5">Dashboard</a></h5>
+        <h4 class="mt-1 text-align center alert alert-info ">Add Stock</h4>
+        <form action="" method="POST">
+            {%csrf_token%}
+            {{form.as_p}}
+            <button type="submit" class="btn btn-danger ">Add Stock</button>
+        </form>
+    </div>
+    
+    <div class="col-sm-8">  <!--karandi -->
+      <form class="d-flex" role="search" method="GET">
+        {%csrf_token%}
+        <input class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      <h4 class="mt-1 text-align center alert alert-info">All Thaan Information</h4>
+      <h5 class="text-center border border-dark rounded col-md-3 mx-auto">KARANDI</h5>
+      {% if SD %}
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Category</th>
+                <th scope="col">Model</th>
+                <th scope="col">Qty</th>
+                <th scope="col">Gazana</th>
+                <th scope="col">Price/m</th>
+                <th scope="col">Shop</th>
+                <th scope="col">Actions</th>  
+              </tr>
+            </thead>
+            {% for i in SD %}
+           
+                 {% if i.category == "Karandi" %}
+                      
+                      <tbody>
+                          
+                        <tr>
+                          <th scope="row">{{i.id}}</th>
+                          <td>{{i.category}}</td>
+                          <td>{{i.name}}</td>
+                          <td>{{i.qty}}</td>
+                          <td>{{i.gazana}}</td>
+                          <td>{{i.price}}</td>
+                          <td>{{i.shop}}</td>
+                          <td>
+                              <a href="{%url 'updatestock' i.id %}" class="bi bi-pencil-fill"></a>
+                              &nbsp
+                              <form class="" action="{%url 'deletestock' i.id%}" method="POST" ">
+                                  {%csrf_token%}
+                                    <input type="submit" value="Delete" class="btn btn-danger"></input> 
+                              </form>
+
+                          </td>
+
+                          {%endif%}
+
+              </tr>
+              {%endfor%}
+            </tbody>
+          </table>
+
+        {%else%}
+        <h4>else part</h4>
+        {%endif%}
+
+        <div>   <!-- cotton -->
+          <h5 class="text-center border border-dark rounded col-md-3 mx-auto">COTTON</h5>
+          {% if SD %}
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Gazana</th>
+                    <th scope="col">Price/m</th>
+                    <th scope="col">Shop</th>
+                    <th scope="col">Actions</th>  
+                  </tr>
+                </thead>
+                {% for i in SD %}
+                     {% if i.category == "Cotton" %}
+                          
+                          <tbody>
+                              
+                            <tr>
+                              <th scope="row">{{i.id}}</th>
+                              <td>{{i.category}}</td>
+                              <td>{{i.name}}</td>
+                              <td>{{i.qty}}</td>
+                              <td>{{i.gazana}}</td>
+                              <td>{{i.price}}</td>
+                              <td>{{i.shop}}</td>
+                              <td>
+                                  <a href="{%url 'updatestock' i.id %}" class="bi bi-pencil-fill"></a>
+                                  &nbsp
+                                  <form class="" action="{%url 'deletestock' i.id%}" method="POST" ">
+                                      {%csrf_token%}
+                                        <input type="submit" value="Delete" class="btn btn-danger"></input> 
+                                  </form>
+    
+                              </td>
+    
+                              {%endif%}
+    
+                  </tr>
+                  {%endfor%}
+                </tbody>
+              </table>
+    
+            {%else%}
+            <h4>else part</h4>
+            {%endif%}
+        </div>
+
+        <div> <!--washnwear -->
+          <h5 class="text-center border border-dark rounded col-md-3 mx-auto">WASH N WEAR</h5>
+          {% if SD %}
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Gazana</th>
+                    <th scope="col">Price/m</th>
+                    <th scope="col">Shop</th>
+                    <th scope="col">Actions</th>  
+                  </tr>
+                </thead>
+                {% for i in SD %}
+                     {% if i.category == "washnwear" %}
+                          
+                          <tbody>
+                              
+                            <tr>
+                              <th scope="row">{{i.id}}</th>
+                              <td>{{i.category}}</td>
+                              <td>{{i.name}}</td>
+                              <td>{{i.qty}}</td>
+                              <td>{{i.gazana}}</td>
+                              <td>{{i.price}}</td>
+                              <td>{{i.shop}}</td>
+                              <td>
+                                  <a href="{%url 'updatestock' i.id %}" class="bi bi-pencil-fill"></a>
+                                  &nbsp
+                                  <form class="" action="{%url 'deletestock' i.id%}" method="POST" ">
+                                      {%csrf_token%}
+                                        <input type="submit" value="Delete" class="btn btn-danger"></input> 
+                                  </form>
+    
+                              </td>
+    
+                              {%endif%}
+    
+                  </tr>
+                  {%endfor%}
+                </tbody>
+              </table>
+    
+            {%else%}
+            <h4>else part</h4>
+            {%endif%}
+        </div>
+
+        <div> <!--latha -->
+          <h5 class="text-center border border-dark rounded col-md-3 mx-auto">Latha</h5>
+          {% if SD %}
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Gazana</th>
+                    <th scope="col">Price/m</th>
+                    <th scope="col">Shop</th>
+                    <th scope="col">Actions</th>  
+                  </tr>
+                </thead>
+                {% for i in SD %}
+                     {% if i.category == "Latha" %}
+                          
+                          <tbody>
+                              
+                            <tr>
+                              <th scope="row">{{i.id}}</th>
+                              <td>{{i.category}}</td>
+                              <td>{{i.name}}</td>
+                              <td>{{i.qty}}</td>
+                              <td>{{i.gazana}}</td>
+                              <td>{{i.price}}</td>
+                              <td>{{i.shop}}</td>
+                              <td>
+                                  <a href="{%url 'updatestock' i.id %}" class="bi bi-pencil-fill"></a>
+                                  &nbsp
+                                  <form class="" action="{%url 'deletestock' i.id%}" method="POST" ">
+                                      {%csrf_token%}
+                                        <input type="submit" value="Delete" class="btn btn-danger"></input> 
+                                  </form>
+    
+                              </td>
+    
+                              {%endif%}
+    
+                  </tr>
+                  {%endfor%}
+                </tbody>
+              </table>
+    
+            {%else%}
+            <h4>else part</h4>
+            {%endif%}
+        </div>
+
+        <div> <!--Boski-->
+          <h5 class="text-center border border-dark rounded col-md-3 mx-auto">Boski</h5>
+          {% if SD %}
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Gazana</th>
+                    <th scope="col">Price/m</th>
+                    <th scope="col">Shop</th>
+                    <th scope="col">Actions</th>  
+                  </tr>
+                </thead>
+                {% for i in SD %}
+                     {% if i.category == "Boski" %}
+                          
+                          <tbody>
+                              
+                            <tr>
+                              <th scope="row">{{i.id}}</th>
+                              <td>{{i.category}}</td>
+                              <td>{{i.name}}</td>
+                              <td>{{i.qty}}</td>
+                              <td>{{i.gazana}}</td>
+                              <td>{{i.price}}</td>
+                              <td>{{i.shop}}</td>
+                              <td>
+                                  <a href="{%url 'updatestock' i.id %}" class="bi bi-pencil-fill"></a>
+                                  &nbsp
+                                  <form class="" action="{%url 'deletestock' i.id%}" method="POST" ">
+                                      {%csrf_token%}
+                                        <input type="submit" value="Delete" class="btn btn-danger"></input> 
+                                  </form>
+    
+                              </td>
+    
+                              {%endif%}
+    
+                  </tr>
+                  {%endfor%}
+                </tbody>
+              </table>
+    
+            {%else%}
+            <h4>else part</h4>
+            {%endif%}
+        </div>
+
+        <div> <!--Khaddar-->
+          <h5 class="text-center border border-dark rounded col-md-3 mx-auto">Khaddar</h5>
+          {% if SD %}
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Gazana</th>
+                    <th scope="col">Price/m</th>
+                    <th scope="col">Shop</th>
+                    <th scope="col">Actions</th>  
+                  </tr>
+                </thead>
+                {% for i in SD %}
+                     {% if i.category == "Khaddar" %}
+                          
+                          <tbody>
+                              
+                            <tr>
+                              <th scope="row">{{i.id}}</th>
+                              <td>{{i.category}}</td>
+                              <td>{{i.name}}</td>
+                              <td>{{i.qty}}</td>
+                              <td>{{i.gazana}}</td>
+                              <td>{{i.price}}</td>
+                              <td>{{i.shop}}</td>
+                              <td>
+                                  <a href="{%url 'updatestock' i.id %}" class="bi bi-pencil-fill"></a>
+                                  &nbsp
+                                  <form class="" action="{%url 'deletestock' i.id%}" method="POST" ">
+                                      {%csrf_token%}
+                                        <input type="submit" value="Delete" class="btn btn-danger"></input> 
+                                  </form>
+    
+                              </td>
+    
+                              {%endif%}
+    
+                  </tr>
+                  {%endfor%}
+                </tbody>
+              </table>
+    
+            {%else%}
+            <h4>else part</h4>
+            {%endif%}
+        </div>
+
+        <div> <!--BoxPacking-->
+          <h5 class="text-center border border-dark rounded col-md-3 mx-auto">BoxPacking</h5>
+          {% if SD %}
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Gazana</th>
+                    <th scope="col">Price/m</th>
+                    <th scope="col">Shop</th>
+                    <th scope="col">Actions</th>  
+                  </tr>
+                </thead>
+                {% for i in SD %}
+                     {% if i.category == "BoxPacking" %}
+                          
+                          <tbody>
+                              
+                            <tr>
+                              <th scope="row">{{i.id}}</th>
+                              <td>{{i.category}}</td>
+                              <td>{{i.name}}</td>
+                              <td>{{i.qty}}</td>
+                              <td>{{i.gazana}}</td>
+                              <td>{{i.price}}</td>
+                              <td>{{i.shop}}</td>
+                              <td>
+                                  <a href="{%url 'updatestock' i.id %}" class="bi bi-pencil-fill"></a>
+                                  &nbsp
+                                  <form class="" action="{%url 'deletestock' i.id%}" method="POST" ">
+                                      {%csrf_token%}
+                                        <input type="submit" value="Delete" class="btn btn-danger"></input> 
+                                  </form>
+    
+                              </td>
+    
+                              {%endif%}
+    
+                  </tr>
+                  {%endfor%}
+                </tbody>
+              </table>
+    
+            {%else%}
+            <h4>else part</h4>
+            {%endif%}
+        </div>
+
+        <div> <!--Others-->
+          <h5 class="text-center border border-dark rounded col-md-3 mx-auto">Other</h5>
+          {% if SD %}
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Gazana</th>
+                    <th scope="col">Price/m</th>
+                    <th scope="col">Shop</th>
+                    <th scope="col">Actions</th>  
+                  </tr>
+                </thead>
+                {% for i in SD %}
+                     {% if i.category == "Other" %}
+                          
+                          <tbody>
+                              
+                            <tr>
+                              <th scope="row">{{i.id}}</th>
+                              <td>{{i.category}}</td>
+                              <td>{{i.name}}</td>
+                              <td>{{i.qty}}</td>
+                              <td>{{i.gazana}}</td>
+                              <td>{{i.price}}</td>
+                              <td>{{i.shop}}</td>
+                              <td>
+                                  <a href="{%url 'updatestock' i.id %}" class="bi bi-pencil-fill"></a>
+                                  &nbsp
+                                  <form class="" action="{%url 'deletestock' i.id%}" method="POST" ">
+                                      {%csrf_token%}
+                                        <input type="submit" value="Delete" class="btn btn-danger"></input> 
+                                  </form>
+    
+                              </td>
+    
+                              {%endif%}
+    
+                  </tr>
+                  {%endfor%}
+                </tbody>
+              </table>
+    
+            {%else%}
+            <h4>else part</h4>
+            {%endif%}
+        </div>
+
+
+
+
+
+    </div>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+{%endblock content%}

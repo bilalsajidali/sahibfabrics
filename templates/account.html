@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-sm-4">
+        <div class="border p-4 shadow"> <!-- Added border and shadow classes -->
+            <img class="mb-5 rounded mx-auto d-block " src="../static/logo.png" alt="" height="" width="150">
+            
+            <form action="" method="POST">
+                {% csrf_token %}
+                <input class="form-control mt-2" type="text" value="SahibFabrics" name="username" readonly> <br>
+                <input class="form-control " type="password" placeholder="Enter password here" name="password"><br>
+                <input type="submit" class="btn btn-outline-success btn-lg btn-block col-md-12" value="Login">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
