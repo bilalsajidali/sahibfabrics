@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{%block content%}
+
+
+<div class="row">
+    <div class="col-sm-4">   <!--This div is for addform-->
+        <!-- <a class="btn btn-primary" href="/dashboard">Dashboard</a> -->
+        <h5 class="mt-1 text-align center alert alert-info ">Welcome {{request.user}} &nbsp <a href="/dashboard" class="btn btn-danger ms-5">Dashboard</a></h5>
+        <h4 class="mt-1 text-align center alert alert-info ">Add Client</h4>
+        <form action="" method="POST">
+            {%csrf_token%}
+            {{form.as_p}}
+            <button type="submit" class="btn btn-danger ">Add Client</button>
+        </form>
+    </div>
+    
+    <div class="col-sm-8">  <!--karandi -->
+      <form class="d-flex" role="search" method="GET">
+        {%csrf_token%}
+        <input class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      <h4 class="mt-1 text-align center alert alert-info">All Client Information</h4>
+      <h5 class="text-bg-dark text-center">Clients</h5>
+      {% if CD %}
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">City</th>
+                <th scope="col">Phone number</th>
+                <th scope="col">Balance</th> 
+              </tr>
+            </thead>
+            {% for i in CD %}
+           
+                 
+                      
+                      <tbody>
+                          
+                        <tr>
+                          <th scope="row">{{i.id}}</th>
+                          <td>{{i.name}}</td>
+                          <td>{{i.address}}</td>
+                          <td>{{i.city}}</td>
+                          <td>{{i.phone}}</td>
+                          <td>{{i.balance}}</td>
+                          <td>
+                              <a href="{%url 'updateclient' i.id %}" class="bi bi-pencil-fill"></a>
+                              &nbsp
+                              <form class="" action="{%url 'deleteclient' i.id%}" method="POST" ">
+                                  {%csrf_token%}
+                                    <input type="submit" value="Delete" class="btn btn-danger"></input> 
+                              </form>
+
+                          </td>
+
+
+              </tr>
+              {%endfor%}
+            </tbody>
+          </table>
+
+        {%else%}
+        <h4>else part</h4>
+        {%endif%}
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+{%endblock content%}

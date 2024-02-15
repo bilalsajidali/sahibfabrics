@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{%block content%}
+<a class="btn btn-danger btn-block mt-2 mb-3 d-flex justify-content-center" href="/logout">Logout</a>
+<div class="row row-cols-1 row-cols-md-4 g-4">
+    <div class="col">
+      <div class="card h-100">
+        <img src="../static/wired-lineal-35-edit.gif" class="card-img-top"
+          alt="addstock" />
+        <div class="card-body">
+          <h5 class="card-title">Add Stock</h5>
+          <p class="card-text">
+            Add,Edit,Delete or View Stock.
+          </p>
+          <a class="btn btn text-bg-success" href="/addstock">Add Stock</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="../static/wired-lineal-955-demand.gif" class="card-img-top"
+          alt="Palm Springs Road" />
+        <div class="card-body">
+          <h5 class="card-title">Add Client</h5>
+          <p class="card-text">This section allow to add Clients view their records.</p>
+          <a class="btn btn text-bg-success" href="/client">Add Client</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="../static/wired-lineal-56-document.gif" class="card-img-top"
+          alt="Los Angeles Skyscrapers" />
+        <div class="card-body">
+          <h5 class="card-title">Billing</h5>
+          <p class="card-text">This modules handels billing and invoices.</p>
+          <a class="btn btn text-bg-success" href="/invoice">Billing</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="../static/NA_SEP._29.jpg" height="310" class="card-img-top"
+          alt="Skyscrapers" />
+        <div class="card-body">
+          <h5 class="card-title">All Invoices</h5>
+          <p class="card-text">
+            Create customers invoices
+          </p>
+          <a class="btn btn text-bg-success" href="/view_invoices">All Invoices</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{%endblock content%}
